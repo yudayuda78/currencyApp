@@ -1,31 +1,25 @@
 import requests
 import tkinter as tk
 from tkinter import ttk
-
-def dataapi():
-    api_key = "9ba3fa6570a8d2a37397a54f4d172726"
-    url = f"https://api.exchangeratesapi.io/v1/latest?access_key={api_key}"
-
-    response = requests.get(url)
-
-        # Memeriksa apakah permintaan berhasil
-    if response.status_code == 200:
-        # Mengonversi respons menjadi JSON
-        data = response.json()
-        rates = data['rates']
-        
-
-        for currency, rate in rates.items():
-            print(f"{currency}: {rate}")
-        
-    else:
-        print("Permintaan gagal dengan kode status:", response.status_code)
+from api import get_currency
 
 
-dataapi()
+datadaricurrency = get_currency
+print(datadaricurrency)
+get_currency()
 
 
 root = tk.Tk()
 root.title("Currency Exchange Rates")
+lebar=500
+tinggi=400
+
+screenwidth= root.winfo_screenwidth()
+screenheigth= root.winfo_screenheight()
+
+posisitengahwidth= int((screenwidth/2) - (lebar/2))
+posisitengahheigth= int((screenheigth/2) - (tinggi/2))
+
+root.geometry(f"{lebar}x{tinggi}+{posisitengahwidth}+{posisitengahheigth}")
 
 root.mainloop()
