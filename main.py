@@ -23,3 +23,5 @@ posisitengahheigth= int((screenheigth/2) - (tinggi/2))
 root.geometry(f"{lebar}x{tinggi}+{posisitengahwidth}+{posisitengahheigth}")
 
 root.mainloop()
+
+
