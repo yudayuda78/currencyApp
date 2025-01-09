@@ -7,18 +7,12 @@ def get_currency():
 
     response = requests.get(url)
 
-        # Memeriksa apakah permintaan berhasil
+    # Memeriksa apakah permintaan berhasil
     if response.status_code == 200:
         # Mengonversi respons menjadi JSON
         data = response.json()
         rates = data['rates']
-        
-
-        for currency, rate in rates.items():
-            datacurrency = currency
-            datarate = rate
-            return datacurrency, datarate
-            
-        
+        return rates  # Mengembalikan seluruh data rates
     else:
         print("Permintaan gagal dengan kode status:", response.status_code)
+        return None
